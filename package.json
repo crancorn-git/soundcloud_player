@@ -1,0 +1,74 @@
+{
+  "name": "soundcloud-player",
+  "version": "0.1.0",
+  "description": "Lightweight SoundCloud desktop player with likes import, library, and embedded widget.",
+  "author": "cran",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-builder --publish=never",
+    "pack": "electron-builder --dir --publish=never",
+    "dist": "electron-builder --publish=always"
+  },
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "electron-log": "4.4.8",
+    "electron-updater": "^6.6.2",
+    "electron-window-state": "^5.0.3"
+  },
+  "build": {
+    "appId": "com.cran.soundcloudplayer",
+    "productName": "SoundCloud Player",
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "player.html",
+      "package.json",
+      "build/**",
+      "!**/*.map"
+    ],
+    "asar": true,
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "crancorn-git",
+        "repo": "soundcloud_player",
+        "private": true
+      }
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": false
+    },
+    "mac": {
+      "icon": "build/icon.png",
+      "category": "public.app-category.music",
+      "target": ["dmg", "zip"]
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": ["AppImage", "deb"]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crancorn-git/soundcloud_player.git"
+  }
+}

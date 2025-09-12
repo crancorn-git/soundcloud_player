@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+*.tgz
+*.zip
+*.7z
+*.rar
+.DS_Store
+Thumbs.db
+# Electron caches
+out/
+release/
