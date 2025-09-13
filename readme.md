@@ -1,16 +1,8 @@
 # SoundCloud Desktop (Private)
 
+Download from releases.
 
-## Prereqs
-- Node 18+
-- Yarn or npm
+Idk how you found this, if you can let me know contact me.
+If you use it, find any bugs or issues that are not listed in release notes then contact me.
 
-
-## Install
-```bash
-# with yarn
-yarn
-
-
-# or npm
-npm i
+Contact: ciaran.cranix@gmail.com
