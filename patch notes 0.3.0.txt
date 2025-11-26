@@ -1,0 +1,28 @@
+CranCloud Player — v0.3.0
+Release date: 2025-11-26
+Big Rebrand & Total Overhaul
+We have completely rewritten the application's frontend using React & Vite. The app is now faster, smoother, and features a modern, professional interface inspired by "Cranotes". We have also officially renamed the project to CranCloud Player.
+New Features
+Zen Mode
+Enter a distraction-free, full-screen experience with large artwork, a blurred backdrop, and essential controls. Perfect for second monitors.
+Home Dashboard
+Jump Back In: A grid of your recently liked tracks for instant access.
+Recently Played: A history ribbon of tracks you've listened to in this session.
+Quick Play: A widget to instantly search and play a specific song without leaving the home screen.
+Up Next: A persistent view of your current queue.
+Customizable Themes
+Not a fan of Orange? You can now switch the app's accent color to Blue, Purple, Pink, Green, or Red via Settings.
+Sleep Timer
+Added a built-in sleep timer (15m, 30m) in the "More" menu to automatically pause playback.
+Frameless UI
+The native window title bar is gone. The app now features a seamless, custom title bar that blends perfectly with the dark theme.
+Improvements
+Collapsible Sidebar: Gain more screen real estate by collapsing the navigation bar.
+Smart Search: The search page now guides you with prompts and handles empty states gracefully.
+Volume Memory: The player now remembers your volume level between sessions and restores it correctly after unmuting.
+Drag & Drop Seek: The progress bar is now fully draggable for smoother seeking.
+Fixes
+Looping Fixed: Resolved an issue where looping a single track would sometimes stop playback. It now reliably restarts the track.
+Image Sizing: Fixed a layout bug where album art in the grid would stretch or squish when resizing the window.
+Window Dragging: Fixed issues where the window couldn't be dragged or where clicks passed through the title bar.
+Queue Logic: Fixed the "Queue Next" button logic to ensure tracks are added correctly to the current playlist context.

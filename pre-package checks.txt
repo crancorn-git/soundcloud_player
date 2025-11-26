@@ -1,0 +1,83 @@
+1) App shell & hardening (1 min)
+
+ Window opens with dark UI, no visible menu bar.
+Pass: No uncaught errors in console.
+
+ Ctrl+K focuses global search field.
+Pass: Caret in top search bar.
+
+ Media keys (Play/Pause/Next/Prev) trigger footer controls.
+Pass: Footer play button toggles; no crash.
+
+2) Account flow (1 min)
+
+ Right header shows “Sign in to SoundCloud”. Click it, complete login.
+Pass: Account chip shows username + avatar.
+
+ Click account chip → confirm Sign out → chip returns to Sign in.
+Pass: Then sign in again (you’ll need it for import).
+
+3) Importer: Likes → Playlists → Albums (3–4 min)
+
+Click Sync Library… from the header.
+
+ Import overlay appears with status text and non-zero progress within ~3–5s.
+Pass: Progress increments visibly during scroll.
+
+ When it says Collecting tracks…, watch console—no red errors.
+
+ On completion: overlay closes; sidebar Likes count > 0.
+Pass: Likes list is populated; clicking a row selects it.
+
+Switch to Playlists tab:
+
+ Playlist cards appear with titles; expanding shows track rows.
+Pass: “Play all” plays first track; “Shuffle” starts random.
+
+Switch to Albums tab:
+
+ Album cards appear; if /you/albums was empty, verify items arrived via the fallback (username /albums).
+Pass: Expand an album and play a track.
+
+Guardrail: Ensure Likes never disappear after playlists/albums merge. Flip back to Likes—count must remain the same as after import finished.
+
+4) Playback & queue (1 min)
+
+ From Likes, double-click a row → track starts; footer shows title/artist; cover loads.
+Pass: Time counter advances; seekbar moves.
+
+ Right-click a different Like → Queue next.
+Pass: Current plays to end, next queued plays automatically.
+
+ Click ♡ in footer (local like toggle) → opacity changes.
+Pass: No console errors; doesn’t remove from Likes list.
+
+5) Search (1–2 min)
+
+ Search something common (e.g., lofi beats).
+Pass: Skeleton rows show while loading; results list populates.
+
+ Click … on a result → Save to Likes.
+Pass: Switch to Likes; the saved track is present.
+
+ Play a search result → audio plays; Queue button adds it “next”.
+Pass: Status tip briefly shows “Queued next”.
+
+6) Persistence (1 min)
+
+ Close the app window (not quit). Click tray icon → window toggles visible/hidden.
+
+ Quit from tray → relaunch yarn start.
+Pass: Last queue and volume restored; last track resumable; Likes/Playlists/Albums still present without re-import.
+
+7) Security/CSP quick glance (30s)
+
+ In console, no CSP violations while playing/searching.
+
+ Verify contextIsolation: true, nodeIntegration: false in your main.js (already set).
+
+8) Updater
+
+ Make sure auto updater actually works
+
+Pass:shows it loading new update or says up to date

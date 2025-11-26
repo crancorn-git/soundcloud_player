@@ -1,74 +1,60 @@
 {
   "name": "soundcloud-player",
-  "version": "0.1.0",
-  "description": "Lightweight SoundCloud desktop player with likes import, library, and embedded widget.",
-  "author": "cran",
-  "license": "MIT",
+  "version": "0.3.0",
+  "description": "Cranix SoundCloud Player",
   "main": "main.js",
+  "type": "commonjs",
   "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
     "start": "electron .",
-    "package": "electron-builder --publish=never",
-    "pack": "electron-builder --dir --publish=never",
-    "dist": "electron-builder --publish=always"
-  },
-  "devDependencies": {
-    "electron": "^38.1.0",
-    "electron-builder": "^26.0.12"
+    "dist": "npm run build && electron-builder --publish=always",
+    "pack": "npm run build && electron-builder --dir"
   },
   "dependencies": {
     "electron-log": "4.4.8",
     "electron-updater": "^6.6.2",
-    "electron-window-state": "^5.0.3"
+    "electron-window-state": "^5.0.3",
+    "lucide-react": "^0.303.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8"
   },
   "build": {
     "appId": "com.cran.soundcloudplayer",
-    "productName": "SoundCloud Player",
+    "productName": "Cranix Player",
     "directories": {
       "buildResources": "build",
-      "output": "dist"
+      "output": "dist_electron"
     },
     "files": [
       "main.js",
       "preload.js",
-      "player.html",
-      "package.json",
-      "build/**",
-      "!**/*.map"
+      "dist/**/*",
+      "build/icon.*"
     ],
-    "asar": true,
     "publish": [
       {
         "provider": "github",
         "owner": "crancorn-git",
-        "repo": "soundcloud_player",
-        "private": true
+        "repo": "soundcloud_player"
       }
     ],
     "win": {
       "icon": "build/icon.ico",
       "target": "nsis"
     },
-    "nsis": {
-      "oneClick": true,
-      "perMachine": false,
-      "allowToChangeInstallationDirectory": false,
-      "allowElevation": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "runAfterFinish": false
-    },
     "mac": {
       "icon": "build/icon.png",
-      "category": "public.app-category.music",
-      "target": ["dmg", "zip"]
-    },
-    "linux": {
-      "icon": "build/icon.png",
-      "target": ["AppImage", "deb"]
+      "category": "public.app-category.music"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/crancorn-git/soundcloud_player.git"
   }
 }
